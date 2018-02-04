@@ -1,28 +1,60 @@
 package com.mn.mncab.entities;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
 @Entity
+@Table(name = "client")
 public class ClientEntity {
-
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private long id;
 	private String firstName;
 	private String lastName;
+
+	public ClientEntity(long id) {
+		super();
+		this.id = id;
+	}
+
+	public ClientEntity(String firstName, String lastName) {
+		super();
+		this.firstName = firstName;
+		this.lastName = lastName;
+	}
+
+	public long getId() {
+		return id;
+	}
+
+	public void setId(long id) {
+		this.id = id;
+	}
+
 	public String getFirstName() {
 		return firstName;
 	}
+
 	public void setFirstName(String firstName) {
 		this.firstName = firstName;
 	}
+
 	public String getLastName() {
 		return lastName;
 	}
+
 	public void setLastName(String lastName) {
 		this.lastName = lastName;
 	}
+
 	@Override
 	public String toString() {
 		return "ClientEntity [firstName=" + firstName + ", lastName=" + lastName + "]";
 	}
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -31,6 +63,7 @@ public class ClientEntity {
 		result = prime * result + ((lastName == null) ? 0 : lastName.hashCode());
 		return result;
 	}
+
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -52,7 +85,5 @@ public class ClientEntity {
 			return false;
 		return true;
 	}
-	
-	
-	
+
 }
