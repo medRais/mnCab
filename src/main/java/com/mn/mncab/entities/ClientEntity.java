@@ -25,6 +25,10 @@ public class ClientEntity {
 		this.firstName = firstName;
 		this.lastName = lastName;
 	}
+	
+	public ClientEntity() {
+		super();
+	}
 
 	public long getId() {
 		return id;

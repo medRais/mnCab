@@ -10,4 +10,6 @@ import com.mn.mncab.entities.ClientEntity;
 public interface ClientDAO extends CrudRepository<ClientEntity, Long>{
 	
 	public ClientEntity findByFirstName(String name);
+	
+	public ClientEntity findById(long id);
 }
